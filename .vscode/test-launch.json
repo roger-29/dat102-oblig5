@@ -1,0 +1,22 @@
+{
+    "run": [
+        {
+            "name": "oppg2",
+            "projectName": "oppg2",
+            "workingDirectory": "/Users/sondregj/Desktop/dat102-oblig5",
+            "args": [],
+            "vmargs": [],
+            "preLaunchTask": ""
+        }
+    ],
+    "debug": [
+        {
+            "name": "oppg2",
+            "projectName": "oppg2",
+            "workingDirectory": "/Users/sondregj/Desktop/dat102-oblig5",
+            "args": [],
+            "vmargs": [],
+            "preLaunchTask": ""
+        }
+    ]
+}
