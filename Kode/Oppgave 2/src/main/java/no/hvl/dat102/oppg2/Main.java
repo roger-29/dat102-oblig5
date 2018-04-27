@@ -31,6 +31,24 @@ public class Main {
 		return bs;
 	}
 
+	public static void iteratorTest() {
+		Integer a = 1;
+		Integer b = 2;
+		Integer c = 3;
+
+		KjedetBSTre<Integer> bs = new KjedetBSTre<Integer>();
+		
+		bs.leggTil(b);
+		bs.leggTil(a);
+		bs.leggTil(c);
+
+		System.out.println(bs.hoyde());
+
+		for (Integer n : bs) {
+			System.out.println(n);
+		}
+	}
+
 	public static void mangeTre() {
 		final int ANTALL_TRAER = 100;
 		final int ANTALL_NODER = 1024;
@@ -53,10 +71,8 @@ public class Main {
 		System.out.println("Største høyde i kjøring: " + maxVal(hoyder));
 		System.out.println("Gjennomsnittlig høyde i kjøring: " + avgVal(hoyder));
 
-		genTree(100, 512).skrivVerdier(200, 300);
+		System.out.println();
 	}
-
-	
 
 	public static void klient() {
 
@@ -65,7 +81,7 @@ public class Main {
 		//Sjekker om verdien 10 er i treet
 		//
 
-		final int ANTALL_NODER = 64;
+		final int ANTALL_NODER = 1024;
 		Random tilfeldig = new Random();
 
 		KjedetBSTre<Integer> bs = new KjedetBSTre<Integer>();

@@ -34,14 +34,7 @@ public class KjedetBSTreADTTest {
 	 */
 	@Test
 	public final void erElementIBSTre() {
-
-		bs.leggTil(e1);
-		bs.leggTil(e4);
-		bs.leggTil(e0);
-		bs.leggTil(e5);
-		bs.leggTil(e2);
-		bs.leggTil(e6);
-		bs.leggTil(e3);
+		bs.leggTilAlle(e1, e4, e0, e5, e2, e6, e3);
 
 		assertEquals(e0, bs.finn(e0));
 		assertEquals(e1, bs.finn(e1));
@@ -57,24 +50,18 @@ public class KjedetBSTreADTTest {
 	/**
 	 * Tester ordning ved å legge til elementer og fjerne minste
 	 */
-	@Test
-	public final void erBSTreOrdnet() {
-		bs.leggTil(e3);
-		bs.leggTil(e2);
-		bs.leggTil(e4);
-		bs.leggTil(e1);
-		bs.leggTil(e5);
-		bs.leggTil(e0);
-		bs.leggTil(e6);
+@Test
+public final void erBSTreOrdnet() {
+	bs.leggTilAlle(e3, e2, e4, e1, e5, e0, e6);
 
-		assertEquals(e0, bs.fjernMin());
-		assertEquals(e1, bs.fjernMin());
-		assertEquals(e2, bs.fjernMin());
-		assertEquals(e3, bs.fjernMin());
-		assertEquals(e4, bs.fjernMin());
-		assertEquals(e5, bs.fjernMin());
-		assertEquals(e6, bs.fjernMin());
-	}
+	assertEquals(e0, bs.fjernMin());
+	assertEquals(e1, bs.fjernMin());
+	assertEquals(e2, bs.fjernMin());
+	assertEquals(e3, bs.fjernMin());
+	assertEquals(e4, bs.fjernMin());
+	assertEquals(e5, bs.fjernMin());
+	assertEquals(e6, bs.fjernMin());
+}
 
 	/**
 	* Tester ordning ved å bruke en inordeniterator
@@ -82,13 +69,7 @@ public class KjedetBSTreADTTest {
 	*/
 	@Test
 	public final void erBSTreOrdnet2() {
-		bs.leggTil(e3);
-		bs.leggTil(e2);
-		bs.leggTil(e4);
-		bs.leggTil(e1);
-		bs.leggTil(e5);
-		bs.leggTil(e0);
-		bs.leggTil(e6);
+		bs.leggTilAlle(e3, e2, e4, e1, e5, e0, e6);
 
 		Integer el[] = { e0, e1, e2, e3, e4, e5, e6 };
 		int i = 0;

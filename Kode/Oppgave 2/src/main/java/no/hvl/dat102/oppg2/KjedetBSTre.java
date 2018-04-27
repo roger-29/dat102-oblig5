@@ -33,6 +33,12 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 		return (antall == 0);
 	}
 
+	public void leggTilAlle(T ... a) {
+		for (T i : a) {
+			leggTil(i);
+		}
+	}
+
 	public void leggTil(T element) {
 		rot = leggTilRek(rot, element);
 		antall++;
@@ -233,25 +239,13 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 	}
 
 	public int hoyde() {
-		if (erTom())
-			return -1;
-
-		return hoydeRek(rot, 0);
+		return hoyde(rot);
 	}
 
-	private int hoydeRek(BinaerTreNode<T> n, int prevD) {
-		int l = prevD, r = prevD;
-
-		if (n == null)
-			return prevD;
-
-		if (n.getVenstre() != null)
-			l = finnHoydeRek(n.getVenstre(), prevD + 1);
-
-		if (n.getHoyre() != null)
-			r = finnHoydeRek(n.getHoyre(), prevD + 1);
-
-		return Math.max(l, r);
+	private int hoyde(BinaerTreNode<T> n) {
+		return n == null 
+			? -1 
+			: 1 + Math.max(hoyde(n.getVenstre()), hoyde(n.getHoyre()));
 	}
 
 	public Iterator<T> iterator() {
@@ -280,16 +274,18 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 	//*****************************************************************
 
 	public void visInorden() {
-		visRekInorden(rot);
+		visInorden(rot);
 		System.out.println();
 	}
 
-	private void visRekInorden(BinaerTreNode<T> p) {
-		if (p != null) {
-			visRekInorden(p.getVenstre());
-			System.out.print(p.getElement() + " ");
-			visRekInorden(p.getHoyre());
+	private void visInorden(BinaerTreNode<T> p) {
+		if (p == null) {
+			return;
 		}
+		
+		visInorden(p.getVenstre());
+		System.out.print(p.getElement() + " ");
+		visInorden(p.getHoyre());
 	}
 
 	public void skrivVerdier(T nedre, T ovre) {
@@ -300,7 +296,7 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 		if (t == null) {
 			return;
 		}
-	
+
 		if (t.getElement().compareTo(min) > 0) {
 			skrivVerdierRek(t.getVenstre(), min, maks);
 		}
